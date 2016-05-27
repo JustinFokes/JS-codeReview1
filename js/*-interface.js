@@ -2,7 +2,11 @@ var Repo = require('./../js/Repo.js').Repo;
 
 var apiKey = require('./../.env').apiKey;
 
+
+
 //Below will be placed variables to be passed into our object.
+
+
 
 var getName = function(userName){
 	$('#results').append("<h5>" + userName + "</h5>");
@@ -13,11 +17,16 @@ var getAvatar = function(picture){
 	$('#avatar').append("<br>" + "<img src="+ picture +"/>");
 	
 	$('avatar').resize(function(){
-			myImg = document.getElementById('avatar');
+	myImg = document.getElementById('avatar');
 	myImg.style.height = "100px";
 	myImg.style.width = "100px";
 	})
+}
 
+var getRepositoryList = function(list){
+	for(var i = 0; i<list.length; i++){
+		$('reposList').append(i);
+	}
 }
 
 
@@ -35,6 +44,6 @@ var newRepo = new Repo();
 
 	$('#find').click(function(){
 	var name = $('#userName').val();
-	newRepo.getRepos(name, getName, getAvatar);
+	newRepo.getRepos(name, getName, getAvatar, getRepositoryList);
 	});
 });

@@ -14,7 +14,7 @@ var getName = function(userName){
 
 var getAvatar = function(picture){
 
-	$('#avatar').append("<br>" + "<img src="+ picture +"/>");
+	$('#avatar').append("<br>" + "<img class='img-circle' src="+ picture +"/>");
 	
 	$('avatar').resize(function(){
 	myImg = document.getElementById('avatar');

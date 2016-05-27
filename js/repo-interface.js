@@ -16,19 +16,13 @@ var getAvatar = function(picture){
 
 	$('#avatar').append("<br>" + "<img class='img-circle' src="+ picture +"/>");
 	
-	$('avatar').resize(function(){
-	myImg = document.getElementById('avatar');
-	myImg.style.height = "100px";
-	myImg.style.width = "100px";
-	})
 }
 
-var getRepositoryList = function(list){
-	for(var i = 0; i<list.length; i++){
-		$('reposList').append(i);
-	}
-}
+var getRepositoryList = function(list, repoUrl){
 
+	$('#reposList').append("<a href="+repoUrl+">"+list+"</a>" + "<br>");
+
+}
 
 
 //
@@ -44,6 +38,10 @@ var newRepo = new Repo();
 
 	$('#find').click(function(){
 	var name = $('#userName').val();
-	newRepo.getRepos(name, getName, getAvatar, getRepositoryList);
+	newRepo.getRepos(name, getName, getAvatar)
+	newRepo.getRepoList(name, getRepositoryList);
 	});
 });
+
+
+

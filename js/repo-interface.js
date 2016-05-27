@@ -20,6 +20,7 @@ var getAvatar = function(picture){
 
 var getRepositoryList = function(list, repoUrl){
 
+
 	$('#reposList').append("<a href="+repoUrl+">"+list+"</a>" + "<br>");
 
 }

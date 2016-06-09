@@ -15,7 +15,7 @@ var getName = function(userName){
 var getAvatar = function(picture){
 
 	$('#avatar').append("<br>" + "<img class='img-circle' src="+ picture +"/>");
-	
+
 }
 
 var getRepositoryList = function(list, repoUrl){
@@ -32,17 +32,14 @@ var getRepositoryList = function(list, repoUrl){
 
 $(document).ready(function(){
 
-var newRepo = new Repo();
 
 
 	//Below will be our user-logic.
 
 	$('#find').click(function(){
-	var name = $('#userName').val();
-	newRepo.getRepos(name, getName, getAvatar)
-	newRepo.getRepoList(name, getRepositoryList);
+		var name = $('#userName').val();
+		var newRepo = new Repo(name);
+		newRepo.getRepos(getName, getAvatar)
+		newRepo.getRepoList(getRepositoryList);
 	});
 });
-
-
-
